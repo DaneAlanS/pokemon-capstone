@@ -27,21 +27,28 @@
 .carousel-bottom-block {
   position: absolute;
   width: 100%;
-  height: 120px;
+  height: 110px;
   bottom: 0px;
   background: #313131;
 }
 
 .slide2 {
   @include sliderimage();
-  background-image: url("../../static/assets/stats.png");
+  background-image: url("../../static/assets/swordshield.png");
   p {
     @include carousel-text();
   }
 }
 .slide3 {
   @include sliderimage();
-  background-image: url("../../static/assets/swordshield.png");
+  background-image: url("../../static/assets/stats.png");
+  p {
+    @include carousel-text();
+  }
+}
+.slide4 {
+  @include sliderimage();
+  background-image: url("../../static/assets/pokemonhome.png");
   p {
     @include carousel-text();
   }

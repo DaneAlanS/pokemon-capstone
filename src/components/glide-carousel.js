@@ -5,8 +5,6 @@ function GlideCarousel() {
   useEffect(() => {
     new Glide(".glide", {
       type: "carousel",
-      startAt: 0,
-      perView: 1,
       autoplay: 4000,
       hoverpause: true,
     }).mount();
@@ -18,18 +16,22 @@ function GlideCarousel() {
         <ul className="glide__slides">
           <li className="glide__slide">
             <div className="slide1">
-              <div className="carousel-bottom-block"></div>
               <p>'Pokemon Journeys' Part 2 Coming to Netflix!</p>
             </div>
           </li>
           <li className="glide__slide">
             <div className="slide2">
-              <p>Pokemon GO Players Call for Loot Box Odds</p>
+              <p>New Pokemon Sword And Shield Event Features</p>
             </div>
           </li>
           <li className="glide__slide">
             <div className="slide3">
-              <p>New Pokemon Sword And Shield Event Features</p>
+              <p>Pokemon GO Players Call for Loot Box Odds</p>
+            </div>
+          </li>
+          <li className="glide__slide">
+            <div className="slide4">
+              <p>New Pokemon Home Update Out!</p>
             </div>
           </li>
         </ul>
@@ -38,6 +40,7 @@ function GlideCarousel() {
         <button className="glide__bullet" data-glide-dir="=0"></button>
         <button className="glide__bullet" data-glide-dir="=1"></button>
         <button className="glide__bullet" data-glide-dir="=2"></button>
+        <button className="glide__bullet" data-glide-dir="=3"></button>
       </div>
     </div>
   );
