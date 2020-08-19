@@ -1,0 +1,23 @@
+.modal-content-wrapper {
+  display: grid;
+  grid-template-columns: 2;
+  grid-template-rows: 3;
+}
+
+.pokedex-wrapper {
+  width: 140px;
+  margin-top: 25px;
+  grid-column-start: 2;
+  img {
+    width: 50px;
+  }
+}
+
+.pokemon-measurements {
+  margin-top: 20px;
+  height: 80px;
+  width: 120px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}

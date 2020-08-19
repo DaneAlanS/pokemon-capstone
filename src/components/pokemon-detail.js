@@ -3,35 +3,56 @@ import Axios from "axios";
 import PokemonList from "./pokemonList";
 
 function PokemonDetail() {
-  const [pokemon, setPokemon] = useState();
+  const [pokemonInfo, setPokemonInfo] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [totalPokemon, setTotalPokemon] = useState(400);
   var API_URL = "";
 
   useEffect(() => {
     getPokemon();
   }, 1);
 
-  async function getPokemon() {
-    const promises = [];
-    for (let i = 1; i < 152; i++) {
-      API_URL = `https://pokeapi.co/api/v2/pokemon/${i}`;
-      promises.push(Axios.get(API_URL));
-    }
+  const loadingRender = (
+    <img
+      className="loading"
+      src={require("../../static/assets/loading.gif")}
+    ></img>
+  );
 
-    let pokemon = await Promise.all(promises); // let pokemon = []
-    if (pokemon) {
-      setPokemon(
-        pokemon.map((data) => ({
-          name: data.data.name,
-          id: data.data.id,
-          image: data.data.sprites["front_default"],
-        }))
+  async function getPokemon() {
+    if (isLoading == true) return;
+    setIsLoading(true);
+
+    const promises = [];
+    for (let i = 1; i < totalPokemon; i++) {
+      API_URL = `https://pokeapi.co/api/v2/pokemon/${i}`;
+      promises.push(
+        Axios.get(API_URL).catch((err) => console.log(err, "error"))
       );
     }
+
+    let pokemon = await Promise.all(promises);
+    if (pokemon) {
+      setPokemonInfo(
+        pokemonInfo.concat(
+          pokemon.map((data) => ({
+            name: data.data.name,
+            id: data.data.id,
+            image: data.data.sprites["front_default"],
+            stats: data.data.stats,
+            height: data.data.height,
+            weight: data.data.weight,
+          }))
+        )
+      );
+    }
+    setIsLoading(false);
   }
 
   return (
     <div className="content-wrapper">
-      {pokemon && <PokemonList pokemon={pokemon}></PokemonList>}
+      {isLoading ? loadingRender : null}
+      {pokemonInfo && <PokemonList pokemonInfo={pokemonInfo}></PokemonList>}
     </div>
   );
 }
