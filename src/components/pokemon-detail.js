@@ -5,7 +5,7 @@ import PokemonList from "./pokemonList";
 function PokemonDetail() {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPokemon, setTotalPokemon] = useState(400);
+  const [totalPokemon, setTotalPokemon] = useState(200);
   var API_URL = "";
 
   useEffect(() => {
@@ -32,6 +32,13 @@ function PokemonDetail() {
     }
 
     let pokemon = await Promise.all(promises);
+
+    for (let i = 1; i < pokemon.length; i++) {
+      if (pokemon[i] == null) {
+        pokemon.splice(i);
+      }
+    }
+
     if (pokemon) {
       setPokemonInfo(
         pokemonInfo.concat(
@@ -42,6 +49,9 @@ function PokemonDetail() {
             stats: data.data.stats,
             height: data.data.height,
             weight: data.data.weight,
+            types: data.data.types.map((element) => {
+              return element.type.name;
+            }),
           }))
         )
       );

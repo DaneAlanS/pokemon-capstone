@@ -54,6 +54,7 @@ function PokemonList({ pokemonInfo }) {
           setModalIsOpen={setModalIsOpen}
           modalIsOpen={modalIsOpen}
           activePokemon={activePokemon}
+          setActivePokemon={setActivePokemon}
         ></PokeModal>
         <PokemonSearchbar
           pokeSearch={pokeSearch}

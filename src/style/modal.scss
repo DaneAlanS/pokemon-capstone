@@ -1,13 +1,15 @@
 .modal-content-wrapper {
   display: grid;
-  grid-template-columns: 2;
-  grid-template-rows: 3;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 30% 20% 50%;
+  height: 100%;
 }
 
 .pokedex-wrapper {
   width: 140px;
   margin-top: 25px;
   grid-column-start: 2;
+  grid-row-start: 1;
   img {
     width: 50px;
   }
@@ -20,4 +22,14 @@
   justify-content: space-between;
   display: flex;
   flex-direction: column;
+  grid-row-start: 3;
+}
+
+.pokemon-type-wrapper {
+  display: flex;
+}
+
+.pokemon-type {
+  width: 80px;
+  height: 30px;
 }

@@ -4,6 +4,8 @@ import ReactModal from "react-modal";
 ReactModal.setAppElement(".app-wrapper");
 
 function PokeModal(props) {
+  const [pokemonTypes, setPokemonTypes] = useState([]);
+
   const customStyles = {
     content: {
       top: "30%",
@@ -26,12 +28,24 @@ function PokeModal(props) {
 
   function closeModal() {
     props.setModalIsOpen(false);
+    //    props.setActivePokemon([]);
   }
 
   const modalInfo = props.activePokemon.map((p) => {
+    const mapPokemonTypes = p.types.map((el) => {
+      return (
+        <img
+          className="pokemon-type"
+          key={el}
+          src={require(`../../static/assets/${el}type.png`)}
+        ></img>
+      );
+    });
+
     return (
       <div className="modal-content-wrapper" key={`${p.name} + " " ${p.id}`}>
         <img src={p.image}></img>
+        <div className="pokemon-type-wrapper">{mapPokemonTypes}</div>
         <div className="pokedex-wrapper">
           <img src={require("../../static/assets/pokedex.png")}></img>
           {`#:${p.id}`}
