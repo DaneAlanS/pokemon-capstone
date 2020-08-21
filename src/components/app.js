@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="page-wrapper">
       <div className="nav-bar">
-        <div className="poke-logo"></div>
+        <div ClassName="inner-nav-bar">
+          <div className="poke-logo"></div>
+        </div>
       </div>
       <GlideCarousel></GlideCarousel>
       <PokemonDetail></PokemonDetail>

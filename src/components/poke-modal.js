@@ -32,6 +32,14 @@ function PokeModal(props) {
   }
 
   const modalInfo = props.activePokemon.map((p) => {
+    const mapPokemonAbilities = p.abilities.map((ability) => {
+      return (
+        <div className="ability" key={ability}>
+          {ability}
+        </div>
+      );
+    });
+
     const mapPokemonTypes = p.types.map((el) => {
       return (
         <img
@@ -50,9 +58,21 @@ function PokeModal(props) {
           <img src={require("../../static/assets/pokedex.png")}></img>
           {`#:${p.id}`}
         </div>
+        <div className="pokemon-ability-wrapper">
+          Abilities:{mapPokemonAbilities}
+        </div>
         <div className="pokemon-measurements">
           <div>Height: {Math.round(p.height / 3.048)} ft</div>
           <div>Weight: {Math.round(p.weight / 4.536)} lbs</div>
+        </div>
+        <div className="bulbapedia-link-wrapper">
+          <a
+            className="bulbapedia-link"
+            target="_blank"
+            href={`https://bulbapedia.bulbagarden.net/wiki/${p.name}_(Pok%C3%A9mon)`}
+          >
+            Learn more at Bulbapedia
+          </a>
         </div>
       </div>
     );

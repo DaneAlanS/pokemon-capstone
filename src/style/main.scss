@@ -47,13 +47,18 @@ body {
   border-bottom: #313131 3px solid;
 }
 
+.inner-nav-bar {
+  grid-column-start: 2;
+  display: grid;
+  width: 100px;
+}
+
 .poke-logo {
   background-image: url("../../static/assets/pokemon.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 200px;
   height: 80px;
-  grid-column-start: 2;
 }
 
 .content-wrapper {

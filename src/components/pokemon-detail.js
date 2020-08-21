@@ -5,7 +5,7 @@ import PokemonList from "./pokemonList";
 function PokemonDetail() {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPokemon, setTotalPokemon] = useState(200);
+  const [totalPokemon, setTotalPokemon] = useState(152);
   var API_URL = "";
 
   useEffect(() => {
@@ -51,6 +51,9 @@ function PokemonDetail() {
             weight: data.data.weight,
             types: data.data.types.map((element) => {
               return element.type.name;
+            }),
+            abilities: data.data.abilities.map((ability) => {
+              return ability.ability.name;
             }),
           }))
         )
