@@ -5,7 +5,7 @@ import PokemonList from "./pokemonList";
 function PokemonDetail() {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPokemon, setTotalPokemon] = useState(152);
+  const [totalPokemon, setTotalPokemon] = useState(893);
   var API_URL = "";
 
   useEffect(() => {
