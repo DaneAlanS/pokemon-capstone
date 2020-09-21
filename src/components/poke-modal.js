@@ -52,7 +52,9 @@ function PokeModal(props) {
 
     return (
       <div className="modal-content-wrapper" key={`${p.name} + " " ${p.id}`}>
-        <img src={p.image}></img>
+        <div className="pokemon-image">
+          <img src={p.image}></img>
+        </div>
         <div className="pokemon-type-wrapper">{mapPokemonTypes}</div>
         <div className="pokedex-wrapper">
           <img src={require("../../static/assets/pokedex.png")}></img>

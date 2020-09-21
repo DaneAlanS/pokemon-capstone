@@ -1,0 +1,83 @@
+.landing-wrapper {
+  background-color: $pokegrey;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Baloo Tamma 2", cursive;
+}
+
+.hub-icon {
+  width: 100px;
+  height: 100px;
+  background-image: url("../../static/assets/hub.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.overlay {
+  background-color: $pokegrey;
+  filter: opacity(0.1);
+  width: 100%;
+  height: 600px;
+}
+
+.pokedex-link {
+  width: 100%;
+  height: 600px;
+  text-decoration: none;
+  &:active {
+    text-decoration: none;
+  }
+}
+.pokedex-image {
+  display: flex;
+  background-image: url(../../static/assets/pokedexbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: solid black 1px;
+}
+
+.news-link {
+  width: 100%;
+  height: 600px;
+  text-decoration: none;
+  &:active {
+    text-decoration: none;
+  }
+}
+
+.ash-image {
+  display: flex;
+  background-image: url(../../static/assets/ashbg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.blurb {
+  color: white;
+  font-size: 50px;
+  animation: appear-from-below;
+  animation-duration: 2s;
+}
+
+@keyframes appear-from-below {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-10px);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0px);
+  }
+}

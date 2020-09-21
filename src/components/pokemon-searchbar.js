@@ -10,7 +10,7 @@ function PokemonSearchbar(props) {
       className="pokemon-search"
       name="pokesearch"
       type="text"
-      placeholder="Search a Pokemon..."
+      placeholder="Search a Pokémon..."
       onChange={handleChange}
     ></input>
   );

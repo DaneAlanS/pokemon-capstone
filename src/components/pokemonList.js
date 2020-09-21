@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import PokemonSearchbar from "./pokemon-searchbar";
 import PokeModal from "./poke-modal";
+import GenTab from "./gentab";
 
-function PokemonList({ pokemonInfo }) {
+function PokemonList({
+  pokemonInfo,
+  startingPokemon,
+  setStartingPokemon,
+  totalPokemon,
+  setTotalPokemon,
+}) {
   const [pokeSearch, setPokeSearch] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activePokemon, setActivePokemon] = useState([]);
@@ -36,11 +43,12 @@ function PokemonList({ pokemonInfo }) {
       if (pokemonInfo) {
         return (
           <div
+            id={p.id}
             className="pokemon-card"
             key={p.name}
             onClick={handleClickedPokemon}
           >
-            <img id={p.id} src={p.image}></img>
+            <img src={p.image} id={p.id}></img>
             {p.name}
           </div>
         );
@@ -56,6 +64,12 @@ function PokemonList({ pokemonInfo }) {
           activePokemon={activePokemon}
           setActivePokemon={setActivePokemon}
         ></PokeModal>
+        <GenTab
+          startingPokemon={startingPokemon}
+          setStartingPokemon={setStartingPokemon}
+          totalPokemon={totalPokemon}
+          setTotalPokemon={setTotalPokemon}
+        ></GenTab>
         <PokemonSearchbar
           pokeSearch={pokeSearch}
           setPokeSearch={setPokeSearch}

@@ -2,8 +2,8 @@
   grid-column-start: 2;
   z-index: 0;
   width: 100%;
-  border-left: solid #313131 2px;
-  border-right: solid #313131 2px;
+  border-left: solid $pokedarkgrey 2px;
+  border-right: solid $pokedarkgrey 2px;
 }
 
 .glide__track,
@@ -30,7 +30,7 @@
   width: 100%;
   height: 110px;
   bottom: 0px;
-  background: #313131;
+  background: $pokedarkgrey;
 }
 
 .slide2 {

@@ -1,8 +1,15 @@
 .modal-content-wrapper {
   display: grid;
   grid-template-columns: 48% 52%;
-  grid-template-rows: 30% 15% 40% 15%;
+  grid-template-rows: 35% 10% 40% 15%;
   height: 100%;
+}
+
+.pokemon-image {
+  img {
+    margin-top: -10px;
+    width: 120px;
+  }
 }
 
 .pokedex-wrapper {

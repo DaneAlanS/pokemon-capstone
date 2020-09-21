@@ -1,3 +1,14 @@
+$pokeblue: #1b53ba;
+$pokered: #e3350d;
+$pokeorange: #ee6b2f;
+$pokeyellow: #e6bc2f;
+$pokegreen: #4dad5b;
+$pokelightblue: #30a7d7;
+$pokepink: #ff90c4;
+$pokepurple: #855ac9;
+$pokedarkgrey: #313131;
+$pokegrey: #616161;
+
 @mixin sliderimage {
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,4 +33,13 @@
   font-size: 40px;
   padding-left: 20px;
   text-shadow: 2px 2px 5px black;
+}
+
+@mixin tabhover($color) {
+  border-bottom: solid 1px $color;
+  &:hover {
+    border: solid $pokedarkgrey 1px;
+    background-color: $color;
+    cursor: pointer;
+  }
 }

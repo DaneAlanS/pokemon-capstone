@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
-import PokemonDetail from "./pokemon-detail";
-import GlideCarousel from "./glide-carousel";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import pokedex from "./pokedex";
+import landing from "./landing";
+import news from "./news";
 
 function App() {
   return (
-    <div className="page-wrapper">
-      <div className="nav-bar">
-        <div className="center-nav" id="bob">
-          <div className="poke-logo"></div>
-          <div className="news">
-            <img className="news-icon"></img>
-            News
-          </div>
-        </div>
-      </div>
-      <GlideCarousel></GlideCarousel>
-      <PokemonDetail></PokemonDetail>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path={"/"} component={landing}></Route>
+        <Route exact path={"/pokedex"} component={pokedex}></Route>
+        <Route exact path={"/news"} component={news}></Route>
+      </Switch>
+    </Router>
   );
 }
 
