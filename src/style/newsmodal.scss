@@ -1,0 +1,48 @@
+.news-modal-content-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.new-story-form {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.title-input {
+  width: 490px;
+  height: 30px;
+}
+
+.content-input {
+  width: 490px;
+  height: 200px;
+}
+
+.form-submit-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  button {
+    font-family: "Baloo Tamma 2", "cursive";
+    background-color: $pokegreen;
+    color: white;
+    border: none;
+    height: 30px;
+    width: 100px;
+    transition: ease-in-out 0.2s;
+    border-radius: 20px;
+    &:hover {
+      border: solid 1px black;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

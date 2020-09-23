@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PokemonSearchbar from "./pokemon-searchbar";
-import PokeModal from "./poke-modal";
+import PokeModal from "../components/modals/poke-modal.js";
 import GenTab from "./gentab";
 
 function PokemonList({

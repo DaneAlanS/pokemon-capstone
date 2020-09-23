@@ -21,7 +21,7 @@ class Story(db.Model):
 
 class StorySchema(ma.Schema):
     class Meta:
-        fields = ("title", "content")
+        fields = ("id","title", "content")
 
 story_schema = StorySchema()
 stories_schema = StorySchema(many=True)
@@ -53,6 +53,15 @@ def get_stories():
 @app.route("/story/<id>", methods=["GET"])
 def get_story(id):
     story = Story.query.get(id)
+    return story_schema.jsonify(story)
+
+# Endpoint for deleting a record
+@app.route("/story/<id>", methods=["DELETE"])
+def story_delete(id):
+    story = Story.query.get(id)
+    db.session.delete(story)
+    db.session.commit()
+
     return story_schema.jsonify(story)
 
 

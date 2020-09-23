@@ -45,7 +45,7 @@ function PokeModal(props) {
         <img
           className="pokemon-type"
           key={el}
-          src={require(`../../static/assets/${el}type.png`)}
+          src={require(`../../../static/assets/${el}type.png`)}
         ></img>
       );
     });
@@ -57,7 +57,7 @@ function PokeModal(props) {
         </div>
         <div className="pokemon-type-wrapper">{mapPokemonTypes}</div>
         <div className="pokedex-wrapper">
-          <img src={require("../../static/assets/pokedex.png")}></img>
+          <img src={require("../../../static/assets/pokedex.png")}></img>
           {`#:${p.id}`}
         </div>
         <div className="pokemon-ability-wrapper">
