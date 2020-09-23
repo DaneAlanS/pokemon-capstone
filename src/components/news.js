@@ -10,6 +10,7 @@ function News() {
   const [reloadNews, setReloadNews] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
+  const [activeEdit, setActiveEdit] = useState(false);
 
   useEffect(() => {
     getNews();
@@ -32,6 +33,17 @@ function News() {
     setModalIsOpen(true);
   }
 
+  function editClickHandler() {
+    for (let i = 0; i < news.length; i++) {
+      if (news[i].id == event.target.id) {
+        setActiveEdit(news[i].id);
+        setModalTitle(news[i].title);
+        setModalContent(news[i].content);
+        setModalIsOpen(true);
+      }
+    }
+  }
+
   function deleteClickHandler() {
     let story = event.target.id;
     if (confirm("Delete the Story?")) {
@@ -48,7 +60,11 @@ function News() {
       <div className="news-card" key={el.id}>
         <div className="news-options">
           <div className="options">
-            <button className="option-button" id={el.id}>
+            <button
+              className="option-button"
+              id={el.id}
+              onClick={editClickHandler}
+            >
               <i className="fas fa-edit option-icon" id={el.id}></i>
             </button>
             <button
@@ -88,6 +104,8 @@ function News() {
         setModalTitle={setModalTitle}
         modalContent={modalContent}
         setModalContent={setModalContent}
+        activeEdit={activeEdit}
+        setActiveEdit={setActiveEdit}
         setReloadNews={setReloadNews}
       ></NewsModal>
     </div>
