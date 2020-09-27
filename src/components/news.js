@@ -10,7 +10,7 @@ function News() {
   const [reloadNews, setReloadNews] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
-  const [activeEdit, setActiveEdit] = useState(false);
+  const [activeEdit, setActiveEdit] = useState();
 
   useEffect(() => {
     getNews();

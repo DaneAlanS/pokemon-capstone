@@ -6,13 +6,13 @@ function Landing() {
       <div className="nav-bar">
         <div className="hub-icon"></div>
       </div>
-      <Link className="pokedex-link" to="/pokedex">
+      <Link className="landing-link" to="/pokedex">
         <div className="pokedex-image">
           <p className="blurb">Search For Your Favorite Pokémon</p>
         </div>
       </Link>
 
-      <Link className="news-link" to="/news">
+      <Link className="landing-link" to="/news">
         <div className="ash-image">
           <p className="blurb"> Check Out the Latest Pokémon News </p>
         </div>

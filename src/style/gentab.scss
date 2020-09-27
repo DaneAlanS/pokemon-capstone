@@ -48,3 +48,16 @@
     background-color: $pokedarkgrey;
   }
 }
+@media screen and (max-width: 600px) {
+  .pokemon-search-container {
+    width: 600px;
+  }
+  .tab-container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    .gen-tab {
+      height: 60px;
+      width: 50%;
+    }
+  }
+}

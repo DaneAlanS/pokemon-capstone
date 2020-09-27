@@ -54,3 +54,10 @@
     @include carousel-text();
   }
 }
+
+@media screen and (max-width: 600px) {
+  .glide {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}

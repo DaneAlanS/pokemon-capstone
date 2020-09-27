@@ -55,6 +55,19 @@ def get_story(id):
     story = Story.query.get(id)
     return story_schema.jsonify(story)
 
+#Endpoint for updating a story
+@app.route("/story/<id>",methods=["PUT"])
+def story_update(id):
+    story = Story.query.get(id)
+    title = request.json['title']
+    content = request.json['content']
+
+    story.title = title
+    story.content = content
+    
+    db.session.commit()
+    return story_schema.jsonify(story)
+
 # Endpoint for deleting a record
 @app.route("/story/<id>", methods=["DELETE"])
 def story_delete(id):

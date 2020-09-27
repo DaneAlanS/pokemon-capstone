@@ -22,7 +22,7 @@
   height: 600px;
 }
 
-.pokedex-link {
+.landing-link {
   width: 100%;
   height: 600px;
   text-decoration: none;
@@ -31,37 +31,12 @@
   }
 }
 .pokedex-image {
-  display: flex;
-  background-image: url(../../static/assets/pokedexbg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 600px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  @include landing-image("../../static/assets/pokedexbg.jpg");
   border-bottom: solid black 1px;
 }
 
-.news-link {
-  width: 100%;
-  height: 600px;
-  text-decoration: none;
-  &:active {
-    text-decoration: none;
-  }
-}
-
 .ash-image {
-  display: flex;
-  background-image: url(../../static/assets/ashbg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 600px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  @include landing-image("../../static/assets/ashbg.jpg");
 }
 
 .blurb {
@@ -79,5 +54,15 @@
   100% {
     filter: opacity(1);
     transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .blurb {
+    font-size: 30px;
+  }
+
+  .landing-link {
+    height: 500px;
   }
 }

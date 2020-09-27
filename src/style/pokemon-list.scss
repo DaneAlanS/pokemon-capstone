@@ -94,3 +94,26 @@
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 600px) {
+  html {
+    width: 600px;
+  }
+  .pokemon-search {
+    margin-top: 400px;
+    width: 400px;
+  }
+
+  .pokemon-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 450px;
+  }
+  .pokemon-card {
+    width: 140px;
+    font-size: 10px;
+  }
+
+  .loading {
+    bottom: -256px;
+  }
+}

@@ -42,3 +42,15 @@ $pokegrey: #616161;
     cursor: pointer;
   }
 }
+
+@mixin landing-image($imagelink) {
+  display: flex;
+  background-image: url($imagelink);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: inherit;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

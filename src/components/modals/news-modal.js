@@ -44,7 +44,19 @@ function NewsModal(props) {
     }
 
     if (props.activeEdit) {
-      console.log("NEED TO ADD AXIOS PUT METHOD");
+      axios
+        .put(`http://localhost:5000/story/${props.activeEdit}`, {
+          title: props.modalTitle,
+          content: props.modalContent,
+        })
+        .then(
+          props.setReloadNews(true),
+          props.setModalIsOpen(false),
+          setErrorMSG(""),
+          props.setModalContent(""),
+          props.setModalTitle(""),
+          props.setActiveEdit()
+        );
     } else {
       //RELOADING NEWS IS HAPPENING BEFORE POST SOMETIMES
       axios
