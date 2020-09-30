@@ -14,19 +14,21 @@ function News() {
 
   useEffect(() => {
     getNews();
-    setReloadNews(false);
   }, [reloadNews]);
 
   function getNews() {
-    axios.get("http://localhost:5000/stories").then((response) => {
-      setNews(
-        response.data.map((data) => ({
-          title: data.title,
-          content: data.content,
-          id: data.id,
-        }))
-      );
-    });
+    axios
+      .get("https://flaskpokenewscapstoneapi.herokuapp.com/stories")
+      .then((response) => {
+        setNews(
+          response.data.map((data) => ({
+            title: data.title,
+            content: data.content,
+            id: data.id,
+          }))
+        ),
+          setReloadNews(false);
+      });
   }
 
   function addClickHandler() {
@@ -47,7 +49,9 @@ function News() {
   function deleteClickHandler() {
     let story = event.target.id;
     if (confirm("Delete the Story?")) {
-      axios.delete(`http://localhost:5000/story/${story}`);
+      axios.delete(
+        `https://flaskpokenewscapstoneapi.herokuapp.com/story/${story}`
+      );
       setReloadNews(true);
       alert("Story Deleted.");
     } else {
@@ -84,30 +88,35 @@ function News() {
   });
 
   return (
-    <div className="news-page-wrapper">
-      <div className="side-button">
-        <button className="side-plus-container" onClick={addClickHandler}>
-          <i className="fas fa-plus"></i>
-        </button>
-      </div>
-      <div className="nav-bar">
-        <div className="center-nav">
-          <Link className="poke-logo" to="/"></Link>
+    <div>
+      <div className="news-page-wrapper">
+        <div className="side-button">
+          <button className="side-plus-container" onClick={addClickHandler}>
+            <i className="fas fa-plus"></i>
+          </button>
         </div>
+        <div className="nav-bar">
+          <Link className="nav-bar" to="/">
+            <img
+              className="poke-logo"
+              src={require("../../static/assets/hub.png")}
+            ></img>
+          </Link>
+        </div>
+        <div className="divider">Poké-News</div>
+        <div className="news-container">{populateNews}</div>
+        <NewsModal
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          modalTitle={modalTitle}
+          setModalTitle={setModalTitle}
+          modalContent={modalContent}
+          setModalContent={setModalContent}
+          activeEdit={activeEdit}
+          setActiveEdit={setActiveEdit}
+          setReloadNews={setReloadNews}
+        ></NewsModal>
       </div>
-      <div className="divider">Poké-News</div>
-      <div className="news-container">{populateNews}</div>
-      <NewsModal
-        modalIsOpen={modalIsOpen}
-        setModalIsOpen={setModalIsOpen}
-        modalTitle={modalTitle}
-        setModalTitle={setModalTitle}
-        modalContent={modalContent}
-        setModalContent={setModalContent}
-        activeEdit={activeEdit}
-        setActiveEdit={setActiveEdit}
-        setReloadNews={setReloadNews}
-      ></NewsModal>
     </div>
   );
 }

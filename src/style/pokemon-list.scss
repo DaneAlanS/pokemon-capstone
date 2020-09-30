@@ -1,3 +1,14 @@
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 80px 55% auto;
+  background-color: whitesmoke;
+  height: 100vh;
+  background-image: url("../../static/assets/map.png");
+  filter: blur();
+  font-family: "Baloo Tamma 2", cursive;
+}
+
 .content-wrapper {
   background-color: $pokedarkgrey;
   background-image: url("../../static/assets/body_bg.png");
@@ -13,13 +24,26 @@
   z-index: 1;
 }
 
-.loading {
+.loading-container {
   position: absolute;
-  align-items: center;
-  justify-self: center;
-  bottom: 205px;
-  width: 50px;
-  height: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+.loading {
+  position: relative;
+  top: 7%;
+  border: solid 3px black;
+  background-image: url("../../static/assets/pokeball.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  height: 80px;
+  width: 80px;
+  font-size: 15px;
 }
 
 .pokemon-list {
@@ -27,9 +51,8 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  row-gap: 20px;
-  //column-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 18px;
   margin-top: 20px;
   justify-items: center;
   transition: 0.5s;
@@ -45,13 +68,17 @@
   box-sizing: border-box;
   background-color: whitesmoke;
   background-image: url("../../static/assets/container_bg.png");
-  border: solid 5px $pokegrey;
+  //border: solid 5px $pokegrey;
   border-radius: 10px;
   overflow: hidden;
   font-family: "Press Start 2P", cursive;
   font-size: 11px;
   transition: 0.5s ease-in-out;
   animation: slide-up 0.4s ease;
+  box-shadow: inset 0 0 10px #000000;
+  &:hover {
+    box-shadow: inset 0 0 4px #000000;
+  }
 
   img {
     height: 110px;
@@ -67,6 +94,7 @@
 
 .pokemon-search-container {
   display: flex;
+  width: 80vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -76,12 +104,12 @@
 
 .pokemon-search {
   height: 50px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Press Start 2P", cursive;
   padding-left: 30px;
   border-radius: 5px;
   border: solid 1px black;
-  width: 600px;
+  width: 90%;
 }
 
 @keyframes slide-up {
@@ -92,28 +120,5 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  html {
-    width: 600px;
-  }
-  .pokemon-search {
-    margin-top: 400px;
-    width: 400px;
-  }
-
-  .pokemon-list {
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 450px;
-  }
-  .pokemon-card {
-    width: 140px;
-    font-size: 10px;
-  }
-
-  .loading {
-    bottom: -256px;
   }
 }

@@ -8,14 +8,13 @@ function PokeModal(props) {
 
   const customStyles = {
     content: {
-      top: "30%",
-      left: "39%",
-      right: "auto",
-      bottom: "",
-      marginRight: "-50%",
-      //transform: "translate(-50%, -%50",
-      width: "400px",
-      height: "300px",
+      position: "relative",
+      top: "0",
+      left: "0",
+      right: "0",
+      bottom: "0",
+      width: "600px",
+      height: "280px",
       border: "solid 2px #000000",
       borderRadius: "20px",
       fontFamily: `"Press Start 2P", "cursive"`,

@@ -17,47 +17,27 @@
   transition: 0.3s linear;
 }
 
-.slide1 {
+.slide {
   @include sliderimage();
+  p {
+    @include carousel-text();
+  }
+}
+
+.slide.one {
   background-image: url("../../static/assets/netflix.png");
-  p {
-    @include carousel-text();
-  }
 }
 
-.carousel-bottom-block {
-  position: absolute;
-  width: 100%;
-  height: 110px;
-  bottom: 0px;
-  background: $pokedarkgrey;
-}
-
-.slide2 {
-  @include sliderimage();
+.slide.two {
   background-image: url("../../static/assets/swordshield.png");
-  p {
-    @include carousel-text();
-  }
 }
-.slide3 {
-  @include sliderimage();
+.slide.three {
   background-image: url("../../static/assets/stats.png");
-  p {
-    @include carousel-text();
-  }
 }
-.slide4 {
-  @include sliderimage();
+.slide.four {
   background-image: url("../../static/assets/pokemonhome.png");
-  p {
-    @include carousel-text();
-  }
 }
 
-@media screen and (max-width: 600px) {
-  .glide {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
+.glide__bullets {
+  bottom: 12px;
 }

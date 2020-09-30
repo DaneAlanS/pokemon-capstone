@@ -4,16 +4,19 @@ function Landing() {
   return (
     <div className="landing-wrapper">
       <div className="nav-bar">
-        <div className="hub-icon"></div>
+        <img
+          className="poke-logo"
+          src={require("../../static/assets/hub.png")}
+        ></img>
       </div>
-      <Link className="landing-link" to="/pokedex">
-        <div className="pokedex-image">
+      <Link className="landing-link  pokedex" to="/pokedex">
+        <div className="pokedex-image  landing-image">
           <p className="blurb">Search For Your Favorite Pokémon</p>
         </div>
       </Link>
 
-      <Link className="landing-link" to="/news">
-        <div className="ash-image">
+      <Link className="landing-link  ash" to="/news">
+        <div className="ash-image  landing-image">
           <p className="blurb"> Check Out the Latest Pokémon News </p>
         </div>
       </Link>

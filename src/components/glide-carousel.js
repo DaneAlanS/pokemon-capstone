@@ -15,23 +15,23 @@ function GlideCarousel() {
       <div data-glide-el="track" className="glide__track">
         <ul className="glide__slides">
           <li className="glide__slide">
-            <div className="slide1">
-              <p>'Pokemon Journeys' Part 2 Coming to Netflix!</p>
+            <div className="slide one">
+              <p>'Pokémon Journeys' Part 2 Coming to Netflix!</p>
             </div>
           </li>
           <li className="glide__slide">
-            <div className="slide2">
-              <p>New Pokemon Sword And Shield Event Features</p>
+            <div className="slide two">
+              <p>New Pokémon Sword And Shield Event Features</p>
             </div>
           </li>
           <li className="glide__slide">
-            <div className="slide3">
-              <p>Pokemon GO Players Call for Loot Box Odds</p>
+            <div className="slide three">
+              <p>Pokémon GO integration coming to Pokémon Home!</p>
             </div>
           </li>
           <li className="glide__slide">
-            <div className="slide4">
-              <p>New Pokemon Home Update Out!</p>
+            <div className="slide four">
+              <p>New Pokémon Home Update Out!</p>
             </div>
           </li>
         </ul>

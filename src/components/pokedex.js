@@ -9,9 +9,12 @@ function pokedex() {
   return (
     <div className="page-wrapper">
       <div className="nav-bar">
-        <div className="center-nav">
-          <Link className="poke-logo" to="/"></Link>
-        </div>
+        <Link className="nav-bar" to="/">
+          <img
+            className="poke-logo"
+            src={require("../../static/assets/hub.png")}
+          ></img>
+        </Link>
       </div>
       <GlideCarousel></GlideCarousel>
       <PokemonDetail></PokemonDetail>

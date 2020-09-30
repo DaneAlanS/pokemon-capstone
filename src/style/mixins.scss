@@ -13,7 +13,20 @@ $pokegrey: #616161;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
+  width: 100vw;
+  background-position: 50%;
+  p {
+    font-size: 3vw;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    border: solid rgba($color: #000000, $alpha: 0.2) 1px;
+    width: 16.6%;
+    height: 40%;
+    position: absolute;
+    text-align: center;
+    bottom: -20%;
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px black;
+  }
 }
 
 @mixin width-height100 {
@@ -22,21 +35,10 @@ $pokegrey: #616161;
 }
 
 @mixin carousel-text {
-  background-color: rgba($color: #000000, $alpha: 0.3);
-  border: solid rgba($color: #000000, $alpha: 0.2) 1px;
-  width: 950px;
-  height: 110px;
-  position: absolute;
-  text-align: center;
-  bottom: -30px;
-  color: whitesmoke;
-  font-size: 40px;
-  padding-left: 20px;
-  text-shadow: 2px 2px 5px black;
 }
 
-@mixin tabhover($color) {
-  border-bottom: solid 3px $color;
+@mixin tabhover($color, $bordersize) {
+  border-bottom: solid $color $bordersize;
   &:hover {
     background-color: $color;
     cursor: pointer;
@@ -48,9 +50,13 @@ $pokegrey: #616161;
   background-image: url($imagelink);
   background-repeat: no-repeat;
   background-size: cover;
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+@mixin inset-shadow($color) {
+  box-shadow: inset 0 0 15px $color;
 }

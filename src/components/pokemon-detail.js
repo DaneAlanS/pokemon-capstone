@@ -15,10 +15,12 @@ function PokemonDetail(props) {
   }, [startingPokemon]);
 
   const loadingRender = (
-    <img
-      className="loading"
-      src={require("../../static/assets/loading.gif")}
-    ></img>
+    <div className="loading-container">
+      <img
+        className="loading"
+        src={require("../../static/assets/loading.gif")}
+      ></img>
+    </div>
   );
 
   async function getPokemon() {

@@ -1,0 +1,10 @@
+@keyframes appear-from-above {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-10px);
+  }
+  100% {
+    filter: opacity(1);
+    transform: translateY(0px);
+  }
+}

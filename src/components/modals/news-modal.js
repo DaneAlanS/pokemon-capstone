@@ -9,12 +9,11 @@ function NewsModal(props) {
 
   const customStyles = {
     content: {
-      top: "30%",
-      left: "36%",
-      right: "auto",
-      bottom: "",
-      marginRight: "-50%",
-      //transform: "translate(-50%, -%50",
+      position: "relative",
+      top: "0",
+      left: "0",
+      right: "0",
+      bottom: "0",
       width: "500px",
       height: "400px",
       border: "solid 2px #000000",
@@ -30,6 +29,10 @@ function NewsModal(props) {
 
   function closeModal() {
     props.setModalIsOpen(false);
+    setErrorMSG(""),
+      props.setModalContent(""),
+      props.setModalTitle(""),
+      props.setActiveEdit();
   }
 
   function handleSubmit(event) {
@@ -45,10 +48,13 @@ function NewsModal(props) {
 
     if (props.activeEdit) {
       axios
-        .put(`http://localhost:5000/story/${props.activeEdit}`, {
-          title: props.modalTitle,
-          content: props.modalContent,
-        })
+        .put(
+          `https://flaskpokenewscapstoneapi.herokuapp.com/story/${props.activeEdit}`,
+          {
+            title: props.modalTitle,
+            content: props.modalContent,
+          }
+        )
         .then(
           props.setReloadNews(true),
           props.setModalIsOpen(false),
@@ -58,9 +64,8 @@ function NewsModal(props) {
           props.setActiveEdit()
         );
     } else {
-      //RELOADING NEWS IS HAPPENING BEFORE POST SOMETIMES
       axios
-        .post("http://localhost:5000/story", {
+        .post("https://flaskpokenewscapstoneapi.herokuapp.com/story", {
           title: props.modalTitle,
           content: props.modalContent,
         })
@@ -105,9 +110,8 @@ function NewsModal(props) {
                   props.modalTitle.length > 100 ? { color: "#ff0000" } : null
                 }
               >
-                {props.modalTitle.length}
-              </span>{" "}
-              of 100 Characters
+                {props.modalTitle.length} of 100 Characters
+              </span>
             </div>
             <div className="content-input wrapper">
               Content:{" "}
@@ -116,7 +120,13 @@ function NewsModal(props) {
                 onChange={handleContentChange}
                 value={props.modalContent}
               ></textarea>
-              {props.modalContent.length} of 500 Characters
+              <span
+                style={
+                  props.modalContent.length > 500 ? { color: "#ff0000" } : null
+                }
+              >
+                {props.modalContent.length} of 500 Characters
+              </span>
             </div>
             <div className="form-submit-wrapper">
               <div className="error-wrapper">{errorMSG}</div>

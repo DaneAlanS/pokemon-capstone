@@ -4,7 +4,7 @@
   "description": "Basic skeleton codebase for React/Router applications.",
   "scripts": {
     "preinstall": "npm set audit false",
-    "start": "webpack-dev-server --config webpack/dev.config.js --watch",
+    "start": "webpack-dev-server --config webpack/dev.config.js --watch --host 0.0.0.0",
     "start-flask": "cd api && venv/scripts/flask run --no-debugger",
     "test-flask": "cd python && flask test",
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
@@ -88,5 +88,5 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "uglifyjs-webpack-plugin": "^1.2.7"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://flaskpokenewscapstoneapi.herokuapp.com/"
 }
