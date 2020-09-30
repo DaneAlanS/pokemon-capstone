@@ -18,7 +18,9 @@ function News() {
 
   function getNews() {
     axios
-      .get("https://flaskpokenewscapstoneapi.herokuapp.com/stories")
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/stories"
+      )
       .then((response) => {
         setNews(
           response.data.map((data) => ({
