@@ -49,7 +49,7 @@ function NewsModal(props) {
     if (props.activeEdit) {
       axios
         .put(
-          `https://flaskpokenewscapstoneapi.herokuapp.com/story/${props.activeEdit}`,
+          `https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/${props.activeEdit}`,
           {
             title: props.modalTitle,
             content: props.modalContent,
@@ -65,10 +65,13 @@ function NewsModal(props) {
         );
     } else {
       axios
-        .post("https://flaskpokenewscapstoneapi.herokuapp.com/story", {
-          title: props.modalTitle,
-          content: props.modalContent,
-        })
+        .post(
+          "https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/story",
+          {
+            title: props.modalTitle,
+            content: props.modalContent,
+          }
+        )
         .then(
           props.setReloadNews(true),
           props.setModalIsOpen(false),

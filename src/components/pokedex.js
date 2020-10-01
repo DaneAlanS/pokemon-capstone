@@ -9,7 +9,7 @@ function pokedex() {
   return (
     <div className="page-wrapper">
       <div className="nav-bar">
-        <Link className="nav-bar" to="/">
+        <Link className="nav-link" to="/">
           <img
             className="poke-logo"
             src={require("../../static/assets/hub.png")}

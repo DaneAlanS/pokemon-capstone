@@ -1,11 +1,10 @@
 .news-page-wrapper {
   display: grid;
   justify-items: center;
-  align-items: center;
   grid-template-columns: 100%;
-  grid-template-rows: auto;
+  grid-template-rows: 100px 100px auto;
   width: 100%;
-  height: 100%;
+  height: auto;
   background-image: url("../../static/assets/container_bg.png");
   font-family: "Baloo Tamma 2", cursive;
 }
@@ -44,6 +43,7 @@
   box-shadow: inset 0 0 10px #000000;
   animation: appear-from-above;
   animation-duration: 1s;
+  word-wrap: break-word;
 
   p {
     margin: 0;

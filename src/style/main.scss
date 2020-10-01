@@ -35,6 +35,11 @@ submit {
   align-items: center;
 }
 
+.nav-link {
+  @extend .nav-bar;
+  width: 100px;
+}
+
 .nav-bar {
   display: flex;
   justify-content: center;

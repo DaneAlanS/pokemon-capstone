@@ -52,7 +52,7 @@ function News() {
     let story = event.target.id;
     if (confirm("Delete the Story?")) {
       axios.delete(
-        `https://flaskpokenewscapstoneapi.herokuapp.com/story/${story}`
+        `https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/story/${story}`
       );
       setReloadNews(true);
       alert("Story Deleted.");
@@ -98,7 +98,7 @@ function News() {
           </button>
         </div>
         <div className="nav-bar">
-          <Link className="nav-bar" to="/">
+          <Link className="nav-link" to="/">
             <img
               className="poke-logo"
               src={require("../../static/assets/hub.png")}
