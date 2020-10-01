@@ -2,34 +2,34 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import NewsModal from "./modals/news-modal";
+import MessageModal from "./modals/message-modal";
 
-function News() {
-  const [news, setNews] = useState([]);
+function MessageBoard() {
+  const [messages, setMessages] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [reloadNews, setReloadNews] = useState(false);
+  const [reloadMessages, setReloadMessages] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalContent, setModalContent] = useState("");
   const [activeEdit, setActiveEdit] = useState();
 
   useEffect(() => {
-    getNews();
-  }, [reloadNews]);
+    getMessages();
+  }, [reloadMessages]);
 
-  function getNews() {
+  function getMessages() {
     axios
       .get(
         "https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/stories"
       )
       .then((response) => {
-        setNews(
+        setMessages(
           response.data.map((data) => ({
             title: data.title,
             content: data.content,
             id: data.id,
           }))
         ),
-          setReloadNews(false);
+          setReloadMessages(false);
       });
   }
 
@@ -38,11 +38,11 @@ function News() {
   }
 
   function editClickHandler() {
-    for (let i = 0; i < news.length; i++) {
-      if (news[i].id == event.target.id) {
-        setActiveEdit(news[i].id);
-        setModalTitle(news[i].title);
-        setModalContent(news[i].content);
+    for (let i = 0; i < messages.length; i++) {
+      if (messages[i].id == event.target.id) {
+        setActiveEdit(messages[i].id);
+        setModalTitle(messages[i].title);
+        setModalContent(messages[i].content);
         setModalIsOpen(true);
       }
     }
@@ -50,21 +50,21 @@ function News() {
 
   function deleteClickHandler() {
     let story = event.target.id;
-    if (confirm("Delete the Story?")) {
+    if (confirm("Delete the Message?")) {
       axios.delete(
         `https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/story/${story}`
       );
-      setReloadNews(true);
-      alert("Story Deleted.");
+      setReloadMessages(true);
+      alert("Message Deleted.");
     } else {
-      alert("Story Not Deleted");
+      alert("Message Not Deleted");
     }
   }
 
-  const populateNews = news.map((el) => {
+  const populateMessages = messages.map((el) => {
     return (
-      <div className="news-card" key={el.id}>
-        <div className="news-options">
+      <div className="message-card" key={el.id}>
+        <div className="message-options">
           <div className="options">
             <button
               className="option-button"
@@ -91,7 +91,7 @@ function News() {
 
   return (
     <div>
-      <div className="news-page-wrapper">
+      <div className="message-page-wrapper">
         <div className="side-button">
           <button className="side-plus-container" onClick={addClickHandler}>
             <i className="fas fa-plus"></i>
@@ -105,9 +105,9 @@ function News() {
             ></img>
           </Link>
         </div>
-        <div className="divider">Poké-News</div>
-        <div className="news-container">{populateNews}</div>
-        <NewsModal
+        <div className="divider">Message Board</div>
+        <div className="message-container">{populateMessages}</div>
+        <MessageModal
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
           modalTitle={modalTitle}
@@ -116,11 +116,11 @@ function News() {
           setModalContent={setModalContent}
           activeEdit={activeEdit}
           setActiveEdit={setActiveEdit}
-          setReloadNews={setReloadNews}
-        ></NewsModal>
+          setReloadMessages={setReloadMessages}
+        ></MessageModal>
       </div>
     </div>
   );
 }
 
-export default News;
+export default MessageBoard;

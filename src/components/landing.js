@@ -15,9 +15,9 @@ function Landing() {
         </div>
       </Link>
 
-      <Link className="landing-link  ash" to="/news">
+      <Link className="landing-link  ash" to="/messages">
         <div className="ash-image  landing-image">
-          <p className="blurb"> Check Out the Latest Pokémon News </p>
+          <p className="blurb"> Check Out the Message Board </p>
         </div>
       </Link>
     </div>

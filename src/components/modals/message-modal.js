@@ -4,7 +4,7 @@ import axios from "axios";
 
 ReactModal.setAppElement(".app-wrapper");
 
-function NewsModal(props) {
+function MessageModal(props) {
   const [errorMSG, setErrorMSG] = useState("");
 
   const customStyles = {
@@ -49,14 +49,14 @@ function NewsModal(props) {
     if (props.activeEdit) {
       axios
         .put(
-          `https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/${props.activeEdit}`,
+          `https://cors-anywhere.herokuapp.com/https://flaskpokenewscapstoneapi.herokuapp.com/story/${props.activeEdit}`,
           {
             title: props.modalTitle,
             content: props.modalContent,
           }
         )
         .then(
-          props.setReloadNews(true),
+          props.setReloadMessages(true),
           props.setModalIsOpen(false),
           setErrorMSG(""),
           props.setModalContent(""),
@@ -73,7 +73,7 @@ function NewsModal(props) {
           }
         )
         .then(
-          props.setReloadNews(true),
+          props.setReloadMessages(true),
           props.setModalIsOpen(false),
           setErrorMSG(""),
           props.setModalContent(""),
@@ -98,8 +98,8 @@ function NewsModal(props) {
         onRequestClose={closeModal}
         closeTimeoutMS={400}
       >
-        <div className="news-modal-content-wrapper">
-          <form className="new-story-form" onSubmit={handleSubmit}>
+        <div className="message-modal-content-wrapper">
+          <form className="message-form" onSubmit={handleSubmit}>
             <div className="title-input-wrapper">
               Title:{" "}
               <input
@@ -144,4 +144,4 @@ function NewsModal(props) {
   );
 }
 
-export default NewsModal;
+export default MessageModal;

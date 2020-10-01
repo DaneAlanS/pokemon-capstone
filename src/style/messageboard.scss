@@ -1,4 +1,4 @@
-.news-page-wrapper {
+.message-page-wrapper {
   display: grid;
   justify-items: center;
   grid-template-columns: 100%;
@@ -23,7 +23,7 @@
   font-size: 40px;
 }
 
-.news-container {
+.message-container {
   grid-row-start: 3;
   grid-column-start: 1;
   width: 100%;
@@ -36,7 +36,7 @@
   padding-top: 20px;
 }
 
-.news-card {
+.message-card {
   background: white url("../../static/assets/container_bg.png");
   padding: 20px;
   border-radius: 1em;
@@ -50,7 +50,7 @@
   }
 }
 
-.news-options {
+.message-options {
   width: 100%;
   height: 20px;
   display: flex;
@@ -84,6 +84,7 @@
 }
 
 .side-button {
+  z-index: 30;
   background: #fff url("../../static/assets/container_bg.png");
   position: fixed;
   bottom: 10%;
