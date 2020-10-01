@@ -37,7 +37,7 @@ submit {
 
 .nav-link {
   @extend .nav-bar;
-  width: 100px;
+  width: 100px !important;
 }
 
 .nav-bar {
