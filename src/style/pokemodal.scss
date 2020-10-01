@@ -5,6 +5,11 @@
   height: 100%;
 }
 
+.pokemon-name {
+  grid-row-start: 1;
+  grid-column-start: 2;
+}
+
 .pokemon-image {
   img {
     margin-top: -10px;
@@ -14,7 +19,7 @@
 
 .pokedex-wrapper {
   width: 140px;
-  margin-top: 25px;
+  margin-top: 50px;
   grid-column-start: 2;
   grid-row-start: 1;
   img {

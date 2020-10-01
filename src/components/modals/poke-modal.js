@@ -49,12 +49,17 @@ function PokeModal(props) {
       );
     });
 
+    function capitalize(sentence) {
+      return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+    }
+
     return (
       <div className="modal-content-wrapper" key={`${p.name} + " " ${p.id}`}>
         <div className="pokemon-image">
           <img src={p.image}></img>
         </div>
         <div className="pokemon-type-wrapper">{mapPokemonTypes}</div>
+        <span className="pokemon-name">{capitalize(p.name)}</span>
         <div className="pokedex-wrapper">
           <img src={require("../../../static/assets/pokedex.png")}></img>
           {`#:${p.id}`}

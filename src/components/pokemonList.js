@@ -14,6 +14,10 @@ function PokemonList({
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [activePokemon, setActivePokemon] = useState([]);
 
+  function capitalize(sentence) {
+    return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+  }
+
   function handleClickedPokemon() {
     let mon = event.target.id;
     for (let i = 0; i < pokemonInfo.length; i++) {
@@ -49,7 +53,7 @@ function PokemonList({
             onClick={handleClickedPokemon}
           >
             <img src={p.image} id={p.id}></img>
-            {p.name}
+            {capitalize(p.name)}
           </div>
         );
       }
