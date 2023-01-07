@@ -8,14 +8,7 @@ import GlideCarousel from "./glide-carousel";
 function pokedex() {
   return (
     <div className="page-wrapper">
-      <div className="nav-bar">
-        <Link className="nav-link" to="/">
-          <img
-            className="poke-logo"
-            src={require("../../static/assets/hub.png")}
-          ></img>
-        </Link>
-      </div>
+      <div className="nav-bar"></div>
       <GlideCarousel></GlideCarousel>
       <PokemonDetail></PokemonDetail>
     </div>

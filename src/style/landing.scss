@@ -2,9 +2,8 @@
   background-color: $pokegrey;
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 10vh 45vh 45vh;
+  display: flex;
+  flex-direction: column;
   font-family: "Baloo Tamma 2", cursive;
 }
 
@@ -16,19 +15,11 @@
     text-decoration: none;
   }
 }
-.pokedex {
-  grid-row-start: 2;
-}
-.ash {
-  grid-row-start: 3;
-}
+
 .pokedex-image {
   @include landing-image("../../static/assets/pokedexbg.jpg");
 }
 
-.ash-image {
-  @include landing-image("../../static/assets/ashbg.jpg");
-}
 
 .blurb {
   color: white;

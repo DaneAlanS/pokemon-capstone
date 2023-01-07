@@ -14,12 +14,6 @@ function Landing() {
           <p className="blurb">Search For Your Favorite Pokémon</p>
         </div>
       </Link>
-
-      <Link className="landing-link  ash" to="/messages">
-        <div className="ash-image  landing-image">
-          <p className="blurb"> Check Out the Message Board </p>
-        </div>
-      </Link>
     </div>
   );
 }

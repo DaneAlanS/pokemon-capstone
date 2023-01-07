@@ -9,8 +9,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path={"/"} component={landing}></Route>
-        <Route exact path={"/pokedex"} component={pokedex}></Route>
-        <Route exact path={"/messages"} component={messageboard}></Route>
+        <Route exact path={"/pokedex"} component={pokedex}></Route>        
       </Switch>
     </Router>
   );
