@@ -1,6 +1,7 @@
 {
   "name": "react-router",
   "version": "1.0.0",
+  "engines":{"node":"14.17.5"},
   "description": "Basic skeleton codebase for React/Router applications.",
   "scripts": {
     "preinstall": "npm set audit false",
